@@ -26,6 +26,7 @@ jobs:
           CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o notely
           EOF
           chmod +x scripts/buildprod.sh
-          
+
       - name: Build application
         run: ./scripts/buildprod.sh
+
