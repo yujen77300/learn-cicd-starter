@@ -28,4 +28,4 @@ jobs:
           chmod +x scripts/buildprod.sh
           
       - name: Build application
-  run: ./scripts/buildprod.sh
+        run: ./scripts/buildprod.sh
