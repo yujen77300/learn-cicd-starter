@@ -18,8 +18,14 @@ jobs:
         with:
           go-version: "1.23.0"
 
-      - name: Make scripts executable
-        run: chmod +x ./scripts/buildprod.sh
-
+      - name: Create build script
+        run: |
+          mkdir -p scripts
+          cat > scripts/buildprod.sh << 'EOF'
+          #!/bin/bash
+          CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o notely
+          EOF
+          chmod +x scripts/buildprod.sh
+          
       - name: Build application
         run: ./scripts/buildprod.sh
